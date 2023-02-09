@@ -8,7 +8,7 @@ export function Sugestao(props){
                             <div class="razao">Segue você</div>
                         </div>
                     </div>
-
+                    {/* teste de commit! */}
                     <div class="seguir">Seguir</div>
                 </div>
     )
