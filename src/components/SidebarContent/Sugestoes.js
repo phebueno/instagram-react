@@ -1,71 +1,26 @@
-//IMPORTAR SUGESTAO UMA POR UMA
-export default function Sugestoes(){
-    return(
+import Sugestao from "./Sugestao";
+
+export default function Sugestoes() {
+    const arrSugestoes = [{ nome: "bad.vibes.memes" },
+    { nome: "chibirdart" },
+    { nome: "razoesparaacreditar" },
+    { nome: "adorable_animals" },
+    { nome: "smallcutecats" },
+    ];
+    return (
         <div class="sugestoes">
-                <div class="titulo">
-                    Sugestões para você
-                    <div>Ver tudo</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" alt="bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/chibirdart.svg" alt="chibirdart" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/razoesparaacreditar.svg" alt="razoesparaacreditar" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/adorable_animals.svg" alt="adorable_animals" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/smallcutecats.svg" alt="smallcutecats" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
+            <div class="titulo">
+                Sugestões para você
+                <div>Ver tudo</div>
             </div>
+            {arrSugestoes.map(sugestao => (<div class="sugestao">
+                <div class="usuario">
+                    < Sugestao nome={sugestao.nome} img={`assets/img/${sugestao.nome}.svg`} imgAlt={`${sugestao.nome}.svg`} />
+                </div>
+
+                <div class="seguir">Seguir</div>
+            </div>))}
+        </div>
     )
 }
+

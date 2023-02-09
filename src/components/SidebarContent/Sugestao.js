@@ -1,15 +1,8 @@
-export function Sugestao(props){
-    return(
-        <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" alt="bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-                    {/* teste de commit! */}
-                    <div class="seguir">Seguir</div>
-                </div>
+export default function Sugestao(props) {
+    return (
+        <><img src={props.img} alt={props.imgAlt} /><div class="texto">
+            <div class="nome">{props.nome}</div>
+            <div class="razao">Segue você</div>
+        </div></>
     )
 }

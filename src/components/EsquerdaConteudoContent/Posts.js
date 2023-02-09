@@ -1,18 +1,17 @@
 import Post from "./Post"
 
 export default function Posts() {
+    const arrPosts=[{usuario:"barked",conteudo:"dog"},
+    {usuario:"meowed",conteudo:"gato-telefone"}];
     return(
         <div class="posts">
-                <Post imgUsuario="assets/img/barked.svg"
-            imgAltUsuario="barked"
-            imgConteudo="assets/img/dog.svg"
-            imgAltConteudo="dog"
-            />
-            <Post imgUsuario="assets/img/meowed.svg"
-            imgAltUsuario="meowed"
-            imgConteudo="assets/img/gato-telefone.svg"
-            imgAltConteudo="gato-telefone"
-            />
+            {arrPosts.map(post=>(
+                <Post imgUsuario={`assets/img/${post.usuario}.svg`}
+                imgAltUsuario={post.usuario}
+                imgConteudo={`assets/img/${post.conteudo}.svg`}
+                imgAltConteudo={post.conteudo}
+                />
+            ))}
             </div>
     )
     
