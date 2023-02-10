@@ -30,15 +30,16 @@ export default function Post(props) {
         }
         else return false;            
     }
-    function dbCurtirPostImg(){
-        const tentativa = curtirPostImg();
-        if (tentativa===true){
-            setTransition("transition");
-            setTimeout(() => {
-                setTransition("");
-            }, 500);
-        }
-    }
+    // FUNÇÃO DOUBLE CLICK COM TRANSIÇÃO
+    // function dbCurtirPostImg(){
+    //     const tentativa = curtirPostImg();
+    //     if (tentativa===true){
+    //         setTransition("transition");
+    //         setTimeout(() => {
+    //             setTransition("");
+    //         }, 500);
+    //     }
+    // }
 
     return(
         <div class="post" data-test="post">
@@ -53,8 +54,8 @@ export default function Post(props) {
                     </div>
 
                     <div class="conteudo">
-                    {/* DELETAR ABAIXO DEPOIS */}
-                    <ion-icon class={transition} name="heart"></ion-icon> 
+                    {/* ION-ICON DE TRANSIÇÃO: <ion-icon class={transition} name="heart"></ion-icon> */}
+                     
                         <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onClick={curtirPostImg}/>
                     </div>
 
