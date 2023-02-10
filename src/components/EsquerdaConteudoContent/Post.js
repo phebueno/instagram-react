@@ -55,7 +55,7 @@ export default function Post(props) {
                     <div class="conteudo">
                     {/* DELETAR ABAIXO DEPOIS */}
                     <ion-icon class={transition} name="heart"></ion-icon> 
-                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onClick={curtirPostImg} onDoubleClick={dbCurtirPostImg}/>
+                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onDoubleClick={dbCurtirPostImg}/>
                     </div>
 
                     <div class="fundo">
