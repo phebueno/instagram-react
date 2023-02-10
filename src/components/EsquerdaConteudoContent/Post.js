@@ -5,6 +5,7 @@ export default function Post(props) {
     const [heart, setHeart] = useState("heart-outline");
     const [likes, setLikes] = useState(101523);
     const [heartColor, setHeartColor] = useState("dark");
+    const [transition, setTransition] = useState("");
 
     function salvarPost(){
         bookmark === "bookmark-outline" ? setBookmark("bookmark") : setBookmark("bookmark-outline");
@@ -24,8 +25,19 @@ export default function Post(props) {
             setHeart("heart");
             setLikes(likes+1);
             setHeartColor("danger");
+            //ADICIONAR AQUI A TRANSIÇÃO PARA TESTAR COM 1 CLIQUE
+            return true;
         }
         else return false;            
+    }
+    function dbCurtirPostImg(){
+        const tentativa = curtirPostImg();
+        if (tentativa===true){
+            setTransition("transition");
+            setTimeout(() => {
+                setTransition("");
+            }, 500);
+        }
     }
 
     return(
@@ -41,7 +53,9 @@ export default function Post(props) {
                     </div>
 
                     <div class="conteudo">
-                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onClick={curtirPostImg}/>
+                    {/* DELETAR ABAIXO DEPOIS */}
+                    <ion-icon class={transition} name="heart"></ion-icon> 
+                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onClick={curtirPostImg} onDoubleClick={dbCurtirPostImg}/>
                     </div>
 
                     <div class="fundo">
