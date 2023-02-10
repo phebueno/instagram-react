@@ -1,4 +1,33 @@
+import { useState } from "react"
+
 export default function Post(props) {
+    const [bookmark, setBookmark] = useState("bookmark-outline");
+    const [heart, setHeart] = useState("heart-outline");
+    const [likes, setLikes] = useState(101523);
+    const [heartColor, setHeartColor] = useState("dark");
+
+    function salvarPost(){
+        bookmark === "bookmark-outline" ? setBookmark("bookmark") : setBookmark("bookmark-outline");
+    }
+
+    function curtirPost(){
+        const tentativa = curtirPostImg();
+        if(tentativa===false){ //Se o post estiver curtido, descurte (apenas clique no coração)
+            setHeart("heart-outline");
+            setLikes(likes-1);
+            setHeartColor("dark");
+        }        
+    }
+
+    function curtirPostImg(){
+        if (heart === "heart-outline"){
+            setHeart("heart");
+            setLikes(likes+1);
+            setHeartColor("danger");
+        }
+        else return false;            
+    }
+
     return(
         <div class="post">
                     <div class="topo">
@@ -12,25 +41,25 @@ export default function Post(props) {
                     </div>
 
                     <div class="conteudo">
-                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} />
+                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onClick={curtirPostImg}/>
                     </div>
 
                     <div class="fundo">
                         <div class="acoes">
                             <div>
-                                <ion-icon name="heart-outline" data-test="like-post"></ion-icon>
+                                <ion-icon color={heartColor} name={heart} data-test="like-post" onClick={curtirPost}></ion-icon>
                                 <ion-icon name="chatbubble-outline"></ion-icon>
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
                             <div>
-                                <ion-icon name="bookmark-outline" data-test="save-post"></ion-icon>
+                                <ion-icon name={bookmark} data-test="save-post" onClick={salvarPost}></ion-icon>
                             </div>
                         </div>
 
                         <div class="curtidas">
                             <img src="assets/img/respondeai.svg" alt="respondeai" />
                             <div class="texto">
-                                Curtido por <strong>respondeai</strong> e <strong data-test="likes-number">outras 101.523 pessoas</strong>
+                                Curtido por <strong>respondeai</strong> e <strong data-test="likes-number">outras {likes} pessoas</strong>
                             </div>
                         </div>
                     </div>
