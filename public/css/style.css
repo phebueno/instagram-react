@@ -314,7 +314,7 @@ ion-icon {
   font-size: 200px;
   color:white;
   opacity: 0;
-  transition: all 0.3s;
+  
   transform: scale(0.2);
   position: absolute;
   left:0;
@@ -331,5 +331,6 @@ ion-icon {
   font-size: 200px;
   opacity: 1;
   transform: scale(1);
+  transition: all 0.3s;
 }
 

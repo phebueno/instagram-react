@@ -25,21 +25,21 @@ export default function Post(props) {
             setHeart("heart");
             setLikes(likes+1);
             setHeartColor("danger");
-            //ADICIONAR AQUI A TRANSIÇÃO PARA TESTAR COM 1 CLIQUE
+            //ADICIONAR AQUI A TRANSIÇÃO PARA TESTAR COM 2 CLIQUES
             return true;
         }
         else return false;            
     }
-    // FUNÇÃO DOUBLE CLICK COM TRANSIÇÃO
-    // function dbCurtirPostImg(){
-    //     const tentativa = curtirPostImg();
-    //     if (tentativa===true){
-    //         setTransition("transition");
-    //         setTimeout(() => {
-    //             setTransition("");
-    //         }, 500);
-    //     }
-    // }
+    //FUNÇÃO DOUBLE CLICK COM TRANSIÇÃO
+    function dbCurtirPostImg(){
+        const tentativa = curtirPostImg();
+        if (tentativa===true){
+            setTransition("transition");
+            setTimeout(() => {
+                setTransition("");
+            }, 500);
+        }
+    }
 
     return(
         <div class="post" data-test="post">
@@ -54,9 +54,10 @@ export default function Post(props) {
                     </div>
 
                     <div class="conteudo">
-                    {/* ION-ICON DE TRANSIÇÃO: <ion-icon class={transition} name="heart"></ion-icon> */}
+                        {/* ION ICON DE TRANSIÇÃO */}
+                    <ion-icon class={transition} name="heart"></ion-icon>
                      
-                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onClick={curtirPostImg}/>
+                        <img data-test="post-image" src={props.imgConteudo} alt={props.imgAltConteudo} onDoubleClick={dbCurtirPostImg}/>
                     </div>
 
                     <div class="fundo">
